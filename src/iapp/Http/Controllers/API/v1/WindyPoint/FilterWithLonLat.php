@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\iApp\Http\Controllers\API\v1\WindyPoint;
+namespace iLaravel\iSMS\iApp\Http\Controllers\API\v1\WindyPoint;
 
 trait FilterWithLonLat
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\Providers;
+namespace iLaravel\iSMS\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -24,7 +24,7 @@ class RouteServiceProvider extends ServiceProvider
     public function apiRoutes(Router $router)
     {
         $router->group([
-            'namespace' => '\iLaravel\iAuth\iApp\Http\Controllers\API',
+            'namespace' => '\iLaravel\iSMS\iApp\Http\Controllers\API',
             'prefix' => 'api',
             'middleware' => 'api'
         ], function ($router) {

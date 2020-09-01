@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\iApp\Http\Controllers\API\v1;
+namespace iLaravel\iSMS\iApp\Http\Controllers\API\v1;
 
 use iLaravel\Core\iApp\Http\Controllers\API\Controller;
 use iLaravel\Core\iApp\Http\Controllers\API\Methods\Controller\Index;

@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\iApp\Http\Resources;
+namespace iLaravel\iSMS\iApp\Http\Resources;
 
 use iLaravel\Core\iApp\Http\Resources\Resource;
 

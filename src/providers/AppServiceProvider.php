@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\Providers;
+namespace iLaravel\iSMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

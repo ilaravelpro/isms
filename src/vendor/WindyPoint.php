@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\Vendor;
+namespace iLaravel\iSMS\Vendor;
 
 use Illuminate\Support\Facades\Cache;
 
@@ -26,6 +26,7 @@ class WindyPoint
     public function __construct($params = [])
     {
         $this->params = array_merge($this->params, $params, request()->all());
+
     }
 
     public static function handel($params = []) {
@@ -54,10 +55,10 @@ class WindyPoint
         $cdata = [];
         if (isset($data['ts']))
             foreach ($data['ts'] as $index => $time) {
-            if (!\iLaravel\iAuth\iApp\WindyPoint::where('latitude', round($self->params['lat'], 4))
+            if (!\iLaravel\iSMS\iApp\WindyPoint::where('latitude', round($self->params['lat'], 4))
             ->where('longitude', round($self->params['lon'], 4))
             ->where('valid_at', date('Y-m-d H:i:s', ($time / 1000)))->first()){
-                $point = \iLaravel\iAuth\iApp\WindyPoint::create([
+                $point = \iLaravel\iSMS\iApp\WindyPoint::create([
                     "latitude" => round($self->params['lat'], 4),
                     "longitude" => round($self->params['lon'], 4),
                     "valid_at" => date('Y-m-d H:i:s', ($time / 1000)),

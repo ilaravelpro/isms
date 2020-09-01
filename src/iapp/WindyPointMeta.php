@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iAuth\iApp;
+namespace iLaravel\iSMS\iApp;
 
 use iLaravel\Core\iApp\Modals\MetaData;
 use Illuminate\Support\Facades\DB;
