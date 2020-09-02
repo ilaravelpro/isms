@@ -9,40 +9,23 @@ use iLaravel\iSMS\iApp\SMSMessage;
 
 trait Send
 {
-    public static function sendFast($receiver, $message)
+    public static function sendFast($receiver, $message, $gateway = null, $sender = null)
     {
-        return (new self())->_sendFast(...func_get_args());
+        return (new self($gateway, $sender))->_sendFast(...func_get_args());
     }
 
-    public static function send($mode)
+    public static function send(SMSMessage $model, $gateway = null, $sender = null)
     {
-        return (new self())->_send(...func_get_args());
+        return (new self($gateway, $sender))->_send(...func_get_args());
     }
 
     public function _send(SMSMessage $model)
     {
-        $mid = $this->_sendBase( $model->receiver, $model->message ,$model->sender);
-        $model->mid = $mid;
-        $model->sent_at = Carbon::now()->format('Y-m-d H:i:s');
-        $model->status = 'sending';
-        $model->save();
-        return true;
+        return $this->gateway::send(...func_get_args());
     }
 
     public function _sendFast($receiver, $message)
     {
-        $model = new $this->model;
-        $mid = $this->_sendBase($receiver, $message);
-        $model->mid = $mid;
-        $model->gate = $this->gate;
-        $model->receiver = $receiver;
-        $model->message = $message;
-        $model->save();
-        return $this->_send($model);
-    }
-
-    public function _sendBase($receiver, $message, $sender = null)
-    {
-        return $this->client->send($sender ?: $this->sender, is_array($receiver) ? $receiver : [$receiver], $message);
+        return $this->gateway::sendFast(...func_get_args());
     }
 }

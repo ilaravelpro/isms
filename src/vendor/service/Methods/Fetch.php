@@ -8,17 +8,13 @@ use iLaravel\iSMS\iApp\SMSMessage;
 
 trait Fetch
 {
-    public static function fetch(SMSMessage $model)
+    public static function fetch(SMSMessage $model, $gateway = null)
     {
         return (new self())->_fetch(...func_get_args());
     }
 
     public function _fetch(SMSMessage $model)
     {
-        $message = $this->client->getMessage($model->mid);
-        $model->sent_at = $message->sent_at;
-        $model->status = $message->status;
-        $model->save();
-        return $model;
+        return $this->gateway::fetch($model);
     }
 }

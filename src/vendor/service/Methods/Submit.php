@@ -4,26 +4,15 @@
 namespace iLaravel\iSMS\Vendor\Service\Methods;
 
 
-use Carbon\Carbon;
-
 trait Submit
 {
-    public static function submit($receiver, $message, $method = null, $type = null, $sender = null, $sent_at = null)
+    public static function submit($receiver, $message, $method = null, $type = null, $sender = null, $sent_at = null, $gateway = null)
     {
-        return (new self())->_submit(...func_get_args());
+        return (new self($gateway, $sender))->_submit(...func_get_args());
     }
 
     public function _submit($receiver, $message, $method = null, $type = null, $sender = null, $sent_at = null)
     {
-        $model = new $this->model;
-        $model->gate = $this->gate;
-        $model->type = $type ?: 'other';
-        $model->method = $method ?: 'plain';
-        $model->sender = $sender ?: $this->sender;
-        $model->receiver = $receiver;
-        $model->message = $message;
-        $model->sent_at = $sent_at ?: Carbon::now()->format('Y-m-d H:i:s');
-        $model->save();
-        return true;
+        return $this->gateway::submit(...func_get_args());
     }
 }
