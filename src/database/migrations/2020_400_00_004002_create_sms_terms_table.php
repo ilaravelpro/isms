@@ -20,7 +20,7 @@ class CreateSmsTermsTable extends Migration
             $table->unsignedInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('sms_terms');
             $table->string('title')->nullable();
-            $table->string('name')->nullable();
+            $table->string('slug')->nullable()->unique();
             $table->timestamps();
         });
     }

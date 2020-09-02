@@ -19,7 +19,7 @@ class CreateSmsDraftsTable extends Migration
             $table->foreign('creator_id')->references('id')->on('users');
             $table->unsignedInteger('term_id')->nullable();
             $table->foreign('term_id')->references('id')->on('sms_terms');
-            $table->string('message')->nullable();
+            $table->longText('message')->nullable();
             $table->timestamps();
         });
     }

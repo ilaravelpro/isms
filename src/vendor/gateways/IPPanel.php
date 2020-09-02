@@ -1,7 +1,7 @@
 <?php
 
 
-namespace iLaravel\iSMS\Vendor;
+namespace iLaravel\iSMS\Vendor\GateWays;
 
 
 class IPPanel

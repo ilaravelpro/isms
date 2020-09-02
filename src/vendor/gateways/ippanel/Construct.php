@@ -1,7 +1,7 @@
 <?php
 
 
-namespace iLaravel\iSMS\Vendor\IPPanel;
+namespace iLaravel\iSMS\Vendor\GateWays\IPPanel;
 
 
 trait Construct
@@ -11,6 +11,6 @@ trait Construct
         $performance = imodal('Performance');
         $this->token = $performance::findBySectionName('isms', 'ippanel_key');
         $this->sender = $sender ? : $performance::findBySectionName('isms', 'ippanel_sender');
-        $this->client = new \IPPanel\Client($this->token);;
+        $this->client = new \IPPanel\Client($this->token);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace iLaravel\iSMS\Vendor\IPPanel;
+namespace iLaravel\iSMS\Vendor\GateWays\IPPanel;
 
 use iLaravel\iSMS\iApp\SMSMessage;
 

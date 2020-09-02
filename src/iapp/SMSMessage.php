@@ -8,14 +8,14 @@ class SMSMessage extends MetaData
 {
     use \iLaravel\Core\iApp\Modals\Modal;
 
-    public static $s_prefix = 'IWP';
+    public static $s_prefix = 'ISMSM';
     public static $s_start = 1155;
     public static $s_end = 1733270554752;
 
     protected $guarded = [];
 
     protected $casts = [
-        'send_at' => 'datetime',
+        'sent_at' => 'datetime',
     ];
 
     protected static function boot()

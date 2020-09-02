@@ -17,10 +17,11 @@ class CreateSmsPatternsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('creator_id')->nullable();
             $table->foreign('creator_id')->references('id')->on('users');
-            $table->string('type')->nullable()->default('text');
+            $table->string('type')->nullable()->default('custom');
             $table->string('gate')->nullable();
             $table->string('title')->nullable();
             $table->longText('value')->nullable();
+            $table->boolean('change')->default(1);
             $table->timestamps();
         });
     }
