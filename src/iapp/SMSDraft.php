@@ -12,6 +12,8 @@ class SMSDraft extends MetaData
     public static $s_start = 1155;
     public static $s_end = 1733270554752;
 
+    protected $table = 'sms_drafts';
+
     protected $guarded = [];
 
     protected static function boot()

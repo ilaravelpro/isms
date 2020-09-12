@@ -20,7 +20,7 @@ class CreateSmsMessagesTable extends Migration
             $table->unsignedInteger('pattern_id')->nullable();
             $table->foreign('pattern_id')->references('id')->on('sms_patterns');
             $table->string('gate')->nullable();
-            $table->string('mid');
+            $table->string('mid')->nullable();
             $table->string('type')->nullable()->default('other');
             $table->string('method')->nullable()->default('plain');
             $table->string('sender')->nullable();

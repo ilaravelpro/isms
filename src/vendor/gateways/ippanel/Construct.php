@@ -8,9 +8,8 @@ trait Construct
 {
     public function __construct($sender = null)
     {
-        $performance = imodal('Performance');
-        $this->token = $performance::findBySectionName('isms', 'ippanel_key');
-        $this->sender = $sender ? : $performance::findBySectionName('isms', 'ippanel_sender');
+        $this->token = ipreference('isms.ippanel.key');
+        $this->sender = $sender ? : ipreference('isms.ippanel.sender');
         $this->client = new \IPPanel\Client($this->token);
     }
 }

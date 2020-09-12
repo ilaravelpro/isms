@@ -3,17 +3,15 @@
 
 namespace iLaravel\iSMS\Vendor\Service\Methods;
 
-use iLaravel\iSMS\iApp\SMSMessage;
-
 trait Check
 {
-    public static function check(SMSMessage $model, $gateway = null)
+    public static function check($model, $gateway = null)
     {
-        return (new self($gateway))->_sendFast(...func_get_args());
+        return (new self($gateway))->_check(...func_get_args());
     }
 
-    public function _check(SMSMessage $model)
+    public function _check($model)
     {
-        return $this->gateway::check($model);
+        return $this->gateway->_check($model);
     }
 }

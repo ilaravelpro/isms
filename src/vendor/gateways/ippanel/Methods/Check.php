@@ -3,16 +3,15 @@
 
 namespace iLaravel\iSMS\Vendor\GateWays\IPPanel\Methods;
 
-use iLaravel\iSMS\iApp\SMSMessage;
 
 trait Check
 {
-    public static function check(SMSMessage $model, $sender = null)
+    public static function check($model, $sender = null)
     {
-        return (new self($sender))->_sendFast(...func_get_args());
+        return (new self($sender))->_check(...func_get_args());
     }
 
-    public function _check(SMSMessage $model)
+    public function _check($model)
     {
         list($statuses, $paginationInfo) = $this->client->fetchStatuses($model->mid, 0, 10);
         $statuses = array_unique(array_column($statuses, 'status'));

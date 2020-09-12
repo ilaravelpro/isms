@@ -12,6 +12,6 @@ trait FetchAll
 
     public function _fetchAll($page = 0, $limit = 10)
     {
-        return $this->gateway::fetchAll($page, $limit);
+        return $this->gateway->_fetchAll($page, $limit);
     }
 }

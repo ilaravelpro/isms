@@ -12,6 +12,8 @@ class SMSTerm extends MetaData
     public static $s_start = 1155;
     public static $s_end = 1733270554752;
 
+    protected $table = 'sms_terms';
+
     protected $guarded = [];
 
 }

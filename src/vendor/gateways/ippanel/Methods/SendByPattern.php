@@ -35,6 +35,8 @@ trait SendByPattern
                 str_replace($patterns, $model->message, $model->pattern->value)
             );
         }
+
+        $mid = $this->_sendByPatternBase($type,$pattern, $names, $receiver, $message);
         $model->mid = $mid;
         $model->sent_at = Carbon::now()->format('Y-m-d H:i:s');
         $model->status = 'sending';

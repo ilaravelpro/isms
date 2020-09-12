@@ -5,11 +5,10 @@ namespace iLaravel\iSMS\Vendor\Service\Methods;
 
 
 use Carbon\Carbon;
-use iLaravel\iSMS\iApp\SMSMessage;
 
 trait SendByPattern
 {
-    public static function sendByPattern(SMSMessage $model, $names, $gateway = null, $sender = null)
+    public static function sendByPattern($model, $names, $gateway = null, $sender = null)
     {
         return (new self($gateway, $sender))->_sendByPattern(...func_get_args());
     }
@@ -19,9 +18,16 @@ trait SendByPattern
         return (new self($gateway, $sender))->_sendByPatternFast(...func_get_args());
     }
 
-    public function _sendByPattern(SMSMessage $model, $names)
+    public function _sendByPattern($model, $names)
     {
-        return $this->gateway::sendByPattern(...func_get_args());
+        if ($model->pattern->type == 'sender') {
+            return $this->gateway::sendByPattern($model, $names);
+        }else{
+            $patterns = array_map(function($pattern) {return "{{$pattern}}";}, $names);
+            $model->send_message = str_replace($patterns, $model->message, $model->pattern->value);
+            return $this->_send($model);
+        }
+        return false;
     }
 
     public function _sendByPatternFast($type,$pattern, $names, $receiver, $message)

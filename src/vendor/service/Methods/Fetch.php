@@ -4,17 +4,15 @@
 namespace iLaravel\iSMS\Vendor\Service\Methods;
 
 
-use iLaravel\iSMS\iApp\SMSMessage;
-
 trait Fetch
 {
-    public static function fetch(SMSMessage $model, $gateway = null)
+    public static function fetch($model, $gateway = null)
     {
         return (new self())->_fetch(...func_get_args());
     }
 
-    public function _fetch(SMSMessage $model)
+    public function _fetch($model)
     {
-        return $this->gateway::fetch($model);
+        return $this->gateway->_fetch($model);
     }
 }

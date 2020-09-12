@@ -2,15 +2,17 @@
 
 namespace iLaravel\iSMS\iApp;
 
-use iLaravel\Core\iApp\Modals\MetaData;
+use Illuminate\Database\Eloquent\Model;
 
-class SMSMessage extends MetaData
+class SMSMessage extends Model
 {
     use \iLaravel\Core\iApp\Modals\Modal;
 
     public static $s_prefix = 'ISMSM';
     public static $s_start = 1155;
     public static $s_end = 1733270554752;
+
+    protected $table = 'sms_messages';
 
     protected $guarded = [];
 
@@ -38,21 +40,21 @@ class SMSMessage extends MetaData
 
     public function setMessageAttribute($value)
     {
-        $this->renderSetValue($value, 'message_type');
+        $this->renderSetValue($value, 'message');
     }
 
     public function getMessageAttribute($value)
     {
-        return $this->renderGetValue($value, 'message_type');
+        return $this->renderGetValue($value, 'message');
     }
 
     public function setReceiverAttribute($value)
     {
-        $this->renderSetValue($value, 'receiver_type');
+        $this->renderSetValue($value, 'receiver');
     }
 
     public function getReceiverAttribute($value)
     {
-        return $this->renderGetValue($value, 'receiver_type');
+        return $this->renderGetValue($value, 'receiver');
     }
 }
