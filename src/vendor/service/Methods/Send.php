@@ -23,6 +23,7 @@ trait Send
         $model->mid = $mid;
         $model->sent_at = Carbon::now()->format('Y-m-d H:i:s');
         $model->status = 'sending';
+        if (isset($model->send_message)) unset($model->send_message);
         $model->save();
         return $model;
     }

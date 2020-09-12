@@ -21,6 +21,7 @@ class CreateSmsPatternsTable extends Migration
             $table->string('gate')->nullable();
             $table->string('title')->nullable();
             $table->longText('value')->nullable();
+            $table->longText('variables')->nullable();
             $table->boolean('change')->default(1);
             $table->timestamps();
         });

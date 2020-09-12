@@ -22,8 +22,8 @@ trait Submit
         $model->sender = $sender ?: $this->sender;
         $model->receiver = $receiver;
         $model->message = $message;
-        $model->sent_at = $sent_at ?: Carbon::now()->format('Y-m-d H:i:s');
+        $model->sent_at = $sent_at;
         $model->save();
-        return true;
+        return $model;
     }
 }

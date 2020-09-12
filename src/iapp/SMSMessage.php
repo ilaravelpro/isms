@@ -57,4 +57,8 @@ class SMSMessage extends Model
     {
         return $this->renderGetValue($value, 'receiver');
     }
+
+    public function pattern(){
+        return $this->belongsTo(SMSPattern::class);
+    }
 }

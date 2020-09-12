@@ -16,14 +16,7 @@ class SMSPattern extends MetaData
 
     protected $guarded = [];
 
-
-    public function setValueAttribute($value)
-    {
-        $this->renderSetValue($value);
-    }
-
-    public function getValueAttribute($value)
-    {
-        return $this->renderGetValue($value);
-    }
+    protected $casts = [
+        'variables' => 'array'
+    ];
 }

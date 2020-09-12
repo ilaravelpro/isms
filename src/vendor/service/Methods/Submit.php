@@ -13,6 +13,6 @@ trait Submit
 
     public function _submit($receiver, $message, $method = null, $type = null, $sender = null, $sent_at = null)
     {
-        return $this->gateway::submit(...func_get_args());
+        return $this->gateway->_submit(...func_get_args());
     }
 }
