@@ -12,16 +12,17 @@ trait Send
         return (new self($gateway, $sender))->_sendFast($receiver, $message);
     }
 
-    public static function send($model, $gateway = null, $sender = null)
+    public static function send($model, $method = 'plain', $gateway = null, $sender = null)
     {
-        return (new self($gateway, $sender))->_send($model);
+        return (new self($gateway, $sender))->_send($model, $method);
     }
 
-    public function _send($model)
+    public function _send($model, $method = 'plain')
     {
         $mid = $this->gateway->_send($model);
         $model->mid = $mid;
         $model->sent_at = Carbon::now()->format('Y-m-d H:i:s');
+        $model->method = $method;
         $model->status = 'sending';
         if (isset($model->send_message)) unset($model->send_message);
         $model->save();

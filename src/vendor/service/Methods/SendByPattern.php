@@ -30,7 +30,7 @@ trait SendByPattern
         }else{
             $patterns = array_map(function($pattern) {return "{{$pattern}}";}, array_keys($model->message));
             $model->send_message = str_replace($patterns, array_values($model->message), $model->pattern->value);
-            return $this->_send($model);
+            return $this->_send($model, 'pattern');
         }
     }
 
