@@ -23,18 +23,20 @@ trait Send
         $model->mid = $mid;
         $model->sent_at = Carbon::now()->format('Y-m-d H:i:s');
         $model->method = $method;
+        $model->sender = $this->sender ? : $this->gateway->sender;
         $model->status = 'sending';
         if (isset($model->send_message)) unset($model->send_message);
         $model->save();
         return $model;
     }
 
-    public function _sendFast($receiver, $message)
+    public function _sendFast($receiver, $message, $sender = null)
     {
         $model = new $this->model;
         $model->gate = $this->gateway->gate;
         $model->receiver = $receiver;
         $model->message = $message;
+        $model->sender = $sender ? : $this->gateway->sender;
         $model->save();
         return $this->_send($model);
     }
