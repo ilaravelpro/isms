@@ -8,11 +8,11 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->mergeConfigFrom(iwindy_path('config/iwindy.php'), 'ilaravel.windy');
+        $this->mergeConfigFrom(isms_path('config/isms.php'), 'ilaravel.isms');
 
         if($this->app->runningInConsole())
         {
-            if (iwindy('database.migrations.include', true)) $this->loadMigrationsFrom(iwindy_path('database/migrations'));
+            if (isms('database.migrations.include', true)) $this->loadMigrationsFrom(isms_path('database/migrations'));
         }
     }
 

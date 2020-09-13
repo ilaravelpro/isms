@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
     }
     public function map(Router $router)
     {
-        if (iwindy('routes.api.status', true)) $this->apiRoutes($router);
+        if (isms('routes.api.status', true)) $this->apiRoutes($router);
     }
 
     public function apiRoutes(Router $router)
@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'api',
             'middleware' => 'api'
         ], function ($router) {
-            require_once(iwindy_path('routes/api.php'));
+            require_once(isms_path('routes/api.php'));
         });
     }
 }

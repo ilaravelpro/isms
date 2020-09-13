@@ -40,4 +40,17 @@ trait Send
         $model->save();
         return $this->_send($model);
     }
+
+    public function _sendSmart($receiver, $message, $pattern = null)
+    {
+        $receiver = is_array($receiver) ? $receiver : [$receiver];
+        $gateways = array_map(function ($gateway) {
+            $class = new ("iLaravel\\iSMS\\Vendor\\GateWays\\$gateway");
+            return ;
+        }, $this->gateways);
+        $receiver = array_map(function ($number) {
+            $render = \iLaravel\Core\Vendor\iMobile::parse($number);
+            return $render;
+        },$receiver);
+    }
 }

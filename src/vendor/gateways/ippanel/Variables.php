@@ -12,4 +12,8 @@ trait Variables
     public $token = null;
     public $client = null;
     public $sender = null;
+
+    public $countries = [
+        '98'
+    ];
 }
