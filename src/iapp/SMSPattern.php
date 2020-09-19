@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * Author: Amir Hossein Jahani | iAmir.net
+ * Last modified: 9/13/20, 12:42 AM
+ * Copyright (c) 2020. Powered by iamir.net
+ */
+
 namespace iLaravel\iSMS\iApp;
 
 use iLaravel\Core\iApp\Modals\MetaData;

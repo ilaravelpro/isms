@@ -1,6 +1,13 @@
 <?php
 
 
+
+/**
+ * Author: Amir Hossein Jahani | iAmir.net
+ * Last modified: 9/13/20, 7:23 AM
+ * Copyright (c) 2020. Powered by iamir.net
+ */
+
 namespace iLaravel\iSMS\Vendor\Service\Methods;
 
 use Carbon\Carbon;
