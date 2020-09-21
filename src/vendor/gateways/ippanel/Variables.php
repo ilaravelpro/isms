@@ -9,11 +9,10 @@
 
 namespace iLaravel\iSMS\Vendor\GateWays\IPPanel;
 
-use iLaravel\iSMS\iApp\SMSMessage;
 
 trait Variables
 {
-    public $model = SMSMessage::class;
+    public $model = null;
     public $gate = 'ippanel';
 
     public $token = null;

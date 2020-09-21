@@ -11,7 +11,7 @@ namespace iLaravel\iSMS\iApp;
 
 use iLaravel\Core\iApp\Modals\MetaData;
 
-class SMSPattern extends MetaData
+class ISMSPattern extends MetaData
 {
     use \iLaravel\Core\iApp\Modals\Modal;
 
@@ -19,7 +19,7 @@ class SMSPattern extends MetaData
     public static $s_start = 1155;
     public static $s_end = 1733270554752;
 
-    protected $table = 'sms_patterns';
+    protected $table = 'i_sms_patterns';
 
     protected $guarded = [];
 

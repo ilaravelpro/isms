@@ -11,7 +11,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSmsMessagesTable extends Migration
+class CreateISmsMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,12 +20,12 @@ class CreateSmsMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sms_messages', function (Blueprint $table) {
+        Schema::create('i_sms_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('creator_id')->nullable();
             $table->foreign('creator_id')->references('id')->on('users');
             $table->unsignedInteger('pattern_id')->nullable();
-            $table->foreign('pattern_id')->references('id')->on('sms_patterns');
+            $table->foreign('pattern_id')->references('id')->on('i_sms_patterns');
             $table->string('gate')->nullable();
             $table->string('mid')->nullable();
             $table->string('type')->nullable()->default('other');
@@ -49,6 +49,6 @@ class CreateSmsMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sms_messages');
+        Schema::dropIfExists('i_sms_messages');
     }
 }

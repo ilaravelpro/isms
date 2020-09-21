@@ -11,7 +11,7 @@ namespace iLaravel\iSMS\iApp;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SMSMessage extends Model
+class ISMSMessage extends Model
 {
     use \iLaravel\Core\iApp\Modals\Modal;
 
@@ -19,7 +19,7 @@ class SMSMessage extends Model
     public static $s_start = 1155;
     public static $s_end = 1733270554752;
 
-    protected $table = 'sms_messages';
+    protected $table = 'i_sms_messages';
 
     protected $guarded = [];
 
@@ -35,10 +35,6 @@ class SMSMessage extends Model
         });
     }
 
-    public function meta()
-    {
-        return $this->hasMany(WindyPointMeta::class, 'point_id');
-    }
 
     public function getSendAtAttribute($value)
     {
@@ -66,6 +62,6 @@ class SMSMessage extends Model
     }
 
     public function pattern(){
-        return $this->belongsTo(SMSPattern::class);
+        return $this->belongsTo(imodal('ISMSPattern'));
     }
 }
