@@ -19,7 +19,7 @@ trait Variables
     public $client = null;
     public $sender = null;
 
-    public $countries = [
+    public static $countries = [
         '98'
     ];
 }

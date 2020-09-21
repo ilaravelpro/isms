@@ -18,5 +18,12 @@ return [
             'include' => true
         ],
     ],
+    'gateways' => [
+        'ippanel' => [
+            'name' => 'ippanel',
+            'title' => 'IPPanle',
+            'model' => \iLaravel\iSMS\Vendor\GateWays\IPPanel::class
+        ]
+    ]
 ];
 ?>
