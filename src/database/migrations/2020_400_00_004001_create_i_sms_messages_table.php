@@ -22,9 +22,9 @@ class CreateISmsMessagesTable extends Migration
     {
         Schema::create('i_sms_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('creator_id')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable();
             $table->foreign('creator_id')->references('id')->on('users');
-            $table->unsignedInteger('pattern_id')->nullable();
+            $table->unsignedBigInteger('pattern_id')->nullable();
             $table->foreign('pattern_id')->references('id')->on('i_sms_patterns');
             $table->string('gate')->nullable();
             $table->string('mid')->nullable();

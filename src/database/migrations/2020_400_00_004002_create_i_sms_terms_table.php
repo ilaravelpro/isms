@@ -22,9 +22,9 @@ class CreateISmsTermsTable extends Migration
     {
         Schema::create('i_sms_terms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('creator_id')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable();
             $table->foreign('creator_id')->references('id')->on('users');
-            $table->unsignedInteger('parent_id')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('i_sms_terms');
             $table->string('title')->nullable();
             $table->string('slug')->nullable()->unique();

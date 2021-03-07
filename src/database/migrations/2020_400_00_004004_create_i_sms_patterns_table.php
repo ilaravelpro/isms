@@ -22,7 +22,7 @@ class CreateISmsPatternsTable extends Migration
     {
         Schema::create('i_sms_patterns', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('creator_id')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable();
             $table->foreign('creator_id')->references('id')->on('users');
             $table->string('type')->nullable()->default('custom');
             $table->string('gate')->nullable();
