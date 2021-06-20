@@ -7,6 +7,8 @@
  * Copyright (c) 2020. Powered by iamir.net
  */
 
-/*Route::namespace('v1')->prefix('v1/windy')->group(function () {
-    Route::apiResource('points', 'WindyPointController', ['as' => 'api.windy','except' => ['store','update','destroy']]);
-});*/
+Route::namespace('v1')->prefix('v1/sms')->middleware('auth:api')->group(function () {
+    Route::apiResource('methods', 'SMSMethodController', ['as' => 'api.sms']);
+    Route::apiResource('patterns', 'SMSPatternController', ['as' => 'api.sms']);
+    Route::apiResource('sections', 'SMSSectionController', ['as' => 'api.sms','except' => ['store','update','destroy']]);
+});

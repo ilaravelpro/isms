@@ -10,7 +10,7 @@
 
 namespace iLaravel\iSMS\Vendor\GateWays;
 
-class IPPanel extends \iAmirNet\SMS\Gateways\IPPanel
+class Kavenegar extends \iAmirNet\SMS\Gateways\Kavenegar
 {
     public static $use_pattern = true;
 

@@ -10,11 +10,11 @@
 
 namespace iLaravel\iSMS\Vendor\GateWays;
 
-class IPPanel extends \iAmirNet\SMS\Gateways\IPPanel
+class Telegram extends \iAmirNet\SMS\Gateways\Telegram
 {
     public static $use_pattern = true;
 
-    public function __construct($model, array $options = [])
+    public function __construct($model)
     {
         parent::__construct([
             'token' => $model->token,

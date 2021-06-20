@@ -18,11 +18,21 @@ return [
             'include' => true
         ],
     ],
-    'gateways' => [
+    'providers' => [
         'ippanel' => [
             'name' => 'ippanel',
             'title' => 'IPPanle',
             'model' => \iLaravel\iSMS\Vendor\GateWays\IPPanel::class
+        ],
+        'kavenegar' => [
+            'name' => 'kavenegar',
+            'title' => 'Kavenegar',
+            'model' => \iLaravel\iSMS\Vendor\GateWays\Kavenegar::class
+        ],
+        'telegram' => [
+            'name' => 'telegram',
+            'title' => 'Telegram',
+            'model' => \iLaravel\iSMS\Vendor\GateWays\Telegram::class
         ]
     ]
 ];

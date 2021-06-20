@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
         {
             if (isms('database.migrations.include', true)) $this->loadMigrationsFrom(isms_path('database/migrations'));
         }
+
     }
 
     public function register()

@@ -17,3 +17,8 @@ function isms($key = null, $default = null)
 {
     return iconfig('isms' . ($key ? ".$key" : ''), $default);
 }
+
+function isms_send($key, $receiver, $variables = null)
+{
+    return (new iLaravel\iSMS\Vendor\Service())->parse($key, $receiver, $variables);
+}
