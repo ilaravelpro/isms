@@ -25,9 +25,9 @@ class SMSPattern extends Model
         'variables' => 'array'
     ];
 
-    public function additionalUpdate($record = null)
+    public function additionalUpdate($request, $record = null)
     {
-        $request = new Request($this->getAdditional());
+        $request = new Request($this->getAdditional($request));
         $this->sections()->sync($request->sections);
     }
 
@@ -63,6 +63,7 @@ class SMSPattern extends Model
     public function sections() {
         return $this->belongsToMany(imodal('SMSSection'), 'sms_pattern_sms_section', 'pattern_id', 'section_id');
     }
+
     public function gateway() {
         return $this->belongsTo(imodal('SMSMethod'), 'gateway_id');
     }

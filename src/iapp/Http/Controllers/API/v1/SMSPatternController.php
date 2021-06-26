@@ -27,6 +27,7 @@ class SMSPatternController extends Controller
         Update,
         Destroy,
         Patterns\AfterSaved,
+        Patterns\Except,
         Patterns\Filters,
         Patterns\RequestData;
 }
