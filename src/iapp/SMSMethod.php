@@ -46,7 +46,7 @@ class SMSMethod extends Model
                     'token' => 'required|string',
                     'description' => 'nullable|string',
                     'property' => 'nullable|numeric',
-                    'status' => 'nullable|in:' . join(iconfig('status.sms_methods', iconfig('status.global')), ','),
+                    'status' => 'nullable|in:' . join(',', iconfig('status.sms_methods', iconfig('status.global'))),
                 ];
                 if ($arg == null || (isset($arg->name) && $arg->name != $request->name)) $rules['name'] .= '|unique:sms_methods,name';
                 if ($arg == null || (isset($arg->code) && $arg->code != $request->code)) $rules['code'] .= '|unique:sms_methods,code';

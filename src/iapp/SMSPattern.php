@@ -45,7 +45,7 @@ class SMSPattern extends Model
                     'title' => 'required|string',
                     'value' => 'required|string',
                     'type' => 'required|string|in:custom,provider',
-                    'status' => 'nullable|in:' . join(iconfig('status.sms_patterns', iconfig('status.global')), ','),
+                    'status' => 'nullable|in:' . join(',', iconfig('status.sms_patterns', iconfig('status.global'))),
                 ], $additionalRules);
                 if ($request->variables && count($request->variables)) {
                     $rules['variables.*.variable'] = 'required|string';
