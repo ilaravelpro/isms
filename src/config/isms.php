@@ -24,6 +24,11 @@ return [
             'title' => 'IPPanle',
             'model' => \iLaravel\iSMS\Vendor\GateWays\IPPanel::class
         ],
+        'sabapayamak' => [
+            'name' => 'sabapayamak',
+            'title' => 'SabaPayamak',
+            'model' => \iLaravel\iSMS\Vendor\GateWays\SabaPayamak::class
+        ],
         'kavenegar' => [
             'name' => 'kavenegar',
             'title' => 'Kavenegar',
