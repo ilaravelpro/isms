@@ -34,6 +34,11 @@ return [
             'title' => 'Kavenegar',
             'model' => \iLaravel\iSMS\Vendor\GateWays\Kavenegar::class
         ],
+        'samantel' => [
+            'name' => 'samantel',
+            'title' => 'samantel',
+            'model' => \iLaravel\iSMS\Vendor\GateWays\SamanTel::class
+        ],
         'telegram' => [
             'name' => 'telegram',
             'title' => 'Telegram',
