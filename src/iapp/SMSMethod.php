@@ -45,6 +45,7 @@ class SMSMethod extends Model
                     'number_pattern' => 'nullable|string',
                     'token' => 'required|string',
                     'description' => 'nullable|string',
+                    'footer' => 'nullable|string',
                     'property' => 'nullable|numeric',
                     'status' => 'nullable|in:' . join(',', iconfig('status.sms_methods', iconfig('status.global'))),
                 ];
