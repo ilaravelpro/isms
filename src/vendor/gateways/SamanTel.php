@@ -12,7 +12,7 @@ namespace iLaravel\iSMS\Vendor\GateWays;
 
 use iLaravel\Core\iApp\Exceptions\iException;
 
-class SamanTel extends \iAmirNet\SMS\Gateways\SabaPayamak
+class SamanTel extends \iAmirNet\SMS\Gateways\SamanTel
 {
     public static $use_pattern = true;
 
