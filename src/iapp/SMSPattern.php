@@ -25,7 +25,7 @@ class SMSPattern extends Model
         'variables' => 'array'
     ];
 
-    public function additionalUpdate($request, $record = null)
+    public function additionalUpdate($request = null, $additional = null, $parent = null)
     {
         $request = new Request($this->getAdditional($request));
         $this->sections()->sync($request->sections);
