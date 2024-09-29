@@ -28,7 +28,7 @@ trait SendByPattern
             if ($sender) $model->sender = $sender;
             $model->save();
         }
-        $result = $this->provider->sendByPattern($model->pattern->value, is_array($model->receiver) ? $model->receiver[0] : $model->receiver, $model->message, $model->pattern->type == 'provider', $model->sender);
+        $result = $this->provider->sendByPattern($model->pattern->value, is_array($model->receiver) && count($model->receiver)== 1 ? $model->receiver[0] : $model->receiver, $model->message, $model->pattern->type == 'provider', $model->sender);
         if ($result['status']){
             $model->mid = $result['id'];
             $model->logs = $model->logs ? array_merge($model->logs, ['send' => $result['result']]): ['send' => $result['result']];
