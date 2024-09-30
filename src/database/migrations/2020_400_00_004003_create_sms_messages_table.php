@@ -31,7 +31,7 @@ class CreateSmsMessagesTable extends Migration
             $table->string('sender')->nullable();
             $table->longText('receiver')->nullable();
             $table->string('receiver_type')->nullable();
-            $table->string('message')->nullable();
+            $table->longText('message')->nullable();
             $table->string('message_type')->nullable();
             $table->string('status')->nullable()->default('processing');
             $table->longText('logs')->nullable();
